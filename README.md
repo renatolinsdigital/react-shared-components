@@ -78,20 +78,28 @@ All three are documented in [src/hooks/README.md](src/hooks/README.md).
 
 ## Using it in an app
 
-The package is not on npm. Build it and install the packed file:
+The package is not on npm. Install a release from GitHub by its tag:
 
 ```bash
-# in this repo
-npm run build
-npm pack                       # writes react-shared-components-0.1.0.tgz
-
-# in the app
-npm install ../react-shared-components/react-shared-components-0.1.0.tgz
+npm install github:renatolinsdigital/react-shared-components#v1.0.0
 npm install gsap               # if the app does not have it yet
 ```
 
-Installing the packed file, rather than linking the folder, keeps a single copy of React: a
-linked folder brings its own `node_modules/react`, and hooks then fail with "Invalid hook call".
+npm downloads the repo at that tag, and the `prepare` script builds `dist/` before the package is
+installed. The app's lockfile pins the tag's commit, so every install gets the same build.
+
+To try changes that are not released yet, install the packed file instead:
+
+```bash
+# in this repo
+npm pack                       # builds, then writes react-shared-components-1.0.0.tgz
+
+# in the app
+npm install ../react-shared-components/react-shared-components-1.0.0.tgz
+```
+
+Either way the app gets a real copy rather than a link to this folder. A linked folder brings its
+own `node_modules/react`, and hooks then fail with "Invalid hook call".
 
 Then import the styles once, at the root of the app, and the components wherever they are needed:
 

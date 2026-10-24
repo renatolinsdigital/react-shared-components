@@ -1,6 +1,6 @@
 {
   "name": "react-shared-components",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "React components and hooks with no app knowledge: form fields, layout, Markdown, toasts and canvas effects.",
   "private": true,
   "type": "module",
@@ -31,7 +31,8 @@
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"{src,demo}/**/*.{ts,tsx,scss,json,md}\" \"*.{ts,js,json,md}\"",
-    "format:check": "prettier --check \"{src,demo}/**/*.{ts,tsx,scss,json,md}\" \"*.{ts,js,json,md}\""
+    "format:check": "prettier --check \"{src,demo}/**/*.{ts,tsx,scss,json,md}\" \"*.{ts,js,json,md}\"",
+    "prepare": "npm run build"
   },
   "peerDependencies": {
     "gsap": "^3.15.0",

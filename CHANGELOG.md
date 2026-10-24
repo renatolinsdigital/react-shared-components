@@ -6,6 +6,17 @@ a fix is a patch.
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-10-24
+
+The first stable release. The components, props and exports of 0.1.0 are now the public API: a
+change that breaks them waits for 2.0.0.
+
+### Added
+
+- Installing a release straight from GitHub by its tag:
+  `npm install github:renatolinsdigital/react-shared-components#v1.0.0`. A `prepare` script
+  builds `dist/` during the install, so the app gets the built package.
+
 ## [0.1.0] - 2026-10-24
 
 ### Added
