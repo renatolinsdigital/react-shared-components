@@ -32,13 +32,14 @@ anything visible, run `npm run dev` and look at the demo in both themes.
 ## Origin
 
 The code came from `src/shared` in the renato-lins site (`D:/projects/nextjs/renato-lins`), which
-now installs this library by its release tag. The site keeps only what needs Next.js: a
+now installs this library from a release packed into its `vendor/` folder (the repo is private,
+so its deploys cannot fetch it from GitHub). The site keeps only what needs Next.js: a
 `next/image` `ShimmerImage`, and a wrapper that feeds the pathname to `PageTransition`. A fix to
 `ShimmerImage` probably belongs in both.
 
 ## Releasing
 
-Apps install a release by its git tag, so a release is: the new version in `package.json` and
+Apps install a release by its git tag, or pack it from the tag, so a release is: the new version in `package.json` and
 both root `version` fields of `package-lock.json` (`npm version x.y.z --no-git-tag-version`), the
 `Unreleased` entries of `CHANGELOG.md` moved under `## [x.y.z] - YYYY-MM-DD`, a commit, and the
 tag `vx.y.z` pushed with it.

@@ -88,7 +88,16 @@ npm install gsap               # if the app does not have it yet
 npm downloads the repo at that tag, and the `prepare` script builds `dist/` before the package is
 installed. The app's lockfile pins the tag's commit, so every install gets the same build.
 
-To try changes that are not released yet, install the packed file instead:
+The repo is private, so that install needs access to it wherever the app installs, CI and
+deploy hosts included. An app that installs without that access keeps the packed release in its
+own repo instead:
+
+```bash
+npm pack github:renatolinsdigital/react-shared-components#v1.0.0 --pack-destination vendor
+npm install ./vendor/react-shared-components-1.0.0.tgz
+```
+
+To try changes that are not released yet, install a packed file of this folder:
 
 ```bash
 # in this repo
