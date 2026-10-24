@@ -1,11 +1,8 @@
-# react-shared-components
+# React Shared Components
 
 React components and hooks that know nothing about the app around them: form fields, layout,
 Markdown, toasts and canvas effects. Dark and light themes, text in any language, written in
 TypeScript with SCSS modules.
-
-They started as the `src/shared` folder of the [renato-lins](https://github.com/renatolinsdigital/renato-lins)
-site and now live here on their own.
 
 ## See them live
 
