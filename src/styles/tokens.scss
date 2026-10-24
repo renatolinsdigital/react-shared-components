@@ -1,0 +1,13 @@
+@use 'mixins' as *;
+
+// The colour tokens every component reads. Dark is the default; `data-theme="light"` on <html>,
+// or on any element, switches that subtree to the light palette.
+
+:root,
+[data-theme='dark'] {
+  @include palette(dark);
+}
+
+[data-theme='light'] {
+  @include palette(light);
+}

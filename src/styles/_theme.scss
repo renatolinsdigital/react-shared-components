@@ -1,0 +1,125 @@
+// ── Colors ──
+// Each colour token is a custom property, so the palette swaps at runtime with
+// `data-theme` on <html>. Sass colour functions cannot see through var(): use
+// `translucent()` from mixins instead of rgba($token, n).
+$palettes: (
+  dark: (
+    'bg': #0a0a0a,
+    'bg-elevated': #141414,
+    'bg-card': #1a1a1a,
+    'bg-input': #1e1e1e,
+    'border': #2a2a2a,
+    'border-hover': #3a3a3a,
+    'text': #f5f5f5,
+    'text-secondary': #999,
+    'text-muted': #666,
+    'accent': #c8ff00,
+    'accent-hover': #d4ff33,
+    'accent-dim': rgba(200, 255, 0, 0.1),
+    'accent-secondary': #00ffd5,
+    'danger': #ff4444,
+    'success': #00cc88,
+    'warning': #ffaa00,
+    'info': #64c8ff,
+  ),
+  light: (
+    'bg': #f5f5f2,
+    'bg-elevated': #fff,
+    'bg-card': #fff,
+    'bg-input': #ededea,
+    'border': #e0e0dc,
+    'border-hover': #c9c9c4,
+    'text': #121212,
+    'text-secondary': #555,
+    'text-muted': #737373,
+    'accent': #527300,
+    'accent-hover': #435e00,
+    'accent-dim': rgba(82, 115, 0, 0.1),
+    'accent-secondary': #00796b,
+    'danger': #c62828,
+    'success': #00805a,
+    'warning': #a35f00,
+    'info': #0b6ea8,
+  ),
+);
+
+$color-bg: var(--color-bg);
+$color-bg-elevated: var(--color-bg-elevated);
+$color-bg-card: var(--color-bg-card);
+$color-bg-input: var(--color-bg-input);
+$color-border: var(--color-border);
+$color-border-hover: var(--color-border-hover);
+$color-text: var(--color-text);
+$color-text-secondary: var(--color-text-secondary);
+$color-text-muted: var(--color-text-muted);
+$color-accent: var(--color-accent);
+$color-accent-hover: var(--color-accent-hover);
+$color-accent-dim: var(--color-accent-dim);
+$color-accent-secondary: var(--color-accent-secondary);
+$color-danger: var(--color-danger);
+$color-success: var(--color-success);
+$color-warning: var(--color-warning);
+$color-info: var(--color-info);
+$color-white: #fff;
+
+// ── Typography ──
+$font-sans:
+  'Inter',
+  -apple-system,
+  BlinkMacSystemFont,
+  sans-serif;
+$font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+$font-display: 'Space Grotesk', sans-serif;
+
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-md: 1.125rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+$font-size-3xl: 2.5rem;
+$font-size-4xl: 3.5rem;
+$font-size-5xl: 5rem;
+$font-size-hero: clamp(3rem, 8vw, 8rem);
+
+// ── Spacing ──
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;
+$space-2xl: 3rem;
+$space-3xl: 4rem;
+$space-4xl: 5rem;
+$space-5xl: 6rem;
+$space-6xl: 8rem;
+
+// ── Layout ──
+$navbar-height: 72px;
+$container-max: 1400px;
+$container-narrow: 900px;
+$sidebar-width: 260px;
+
+// ── Border Radius ──
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-full: 9999px;
+
+// ── Transitions ──
+$transition-fast: 150ms ease;
+$transition-base: 250ms ease;
+$transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+// ── Z-index ──
+$z-navbar: 100;
+$z-modal: 200;
+$z-cursor: 300;
+
+// ── Breakpoints ──
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;

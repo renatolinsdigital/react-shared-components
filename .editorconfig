@@ -1,0 +1,21 @@
+# EditorConfig: https://editorconfig.org
+# Keeps line endings, indentation and charset consistent across every editor
+# and OS without relying on editor-specific settings.
+
+root = true
+
+[*]
+charset             = utf-8
+end_of_line         = lf
+indent_style        = space
+indent_size         = 2
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+# Trailing whitespace is meaningful in Markdown (line breaks)
+trim_trailing_whitespace = false
+
+[Makefile]
+# Make requires real tabs
+indent_style = tab

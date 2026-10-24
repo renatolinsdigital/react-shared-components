@@ -1,0 +1,10 @@
+@use 'theme' as *;
+@use 'mixins' as *;
+
+.tagFilter {
+  display: flex;
+  gap: $space-sm;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: $space-2xl;
+}

@@ -1,0 +1,86 @@
+@use 'theme' as *;
+@use 'mixins' as *;
+
+// The reveal runs on a wrapper, never on the <img>: callers animate the img's own transform and
+// filter (card hover zoom, cover zoom on the detail pages), and the two would fight.
+
+.frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.shimmer {
+  position: absolute;
+  inset: 0;
+  background: $color-bg-elevated;
+  transition: opacity 0.7s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      transparent 20%,
+      translucent($color-text, 0.06) 50%,
+      transparent 80%
+    );
+    transform: translateX(-100%);
+    animation: sweep 1.6s ease-in-out infinite;
+  }
+}
+
+.reveal {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  filter: blur(12px);
+  transform: scale(1.04);
+  transition:
+    opacity 0.7s ease,
+    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.loaded {
+  .shimmer {
+    opacity: 0;
+  }
+
+  .shimmer::after {
+    animation-play-state: paused;
+  }
+
+  .reveal {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+@keyframes sweep {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer::after {
+    animation: none;
+  }
+
+  .reveal {
+    filter: none;
+    transform: none;
+  }
+}

@@ -1,0 +1,45 @@
+@use 'theme' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.textarea {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: inherit;
+  width: 100%;
+  padding: $space-md $space-lg;
+  background: $color-bg-input;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  color: $color-text;
+  font-size: $font-size-base;
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+  transition:
+    border-color $transition-base,
+    box-shadow $transition-base;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  // The accent ring below replaces the browser outline
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+    box-shadow: 0 0 0 3px $color-accent-dim;
+  }
+}

@@ -1,0 +1,282 @@
+@use 'theme' as *;
+@use 'mixins' as *;
+
+// Layout helpers shared by every demo section. The components bring their own styles; these only
+// arrange them inside the preview panels.
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-md;
+}
+
+.grid {
+  display: grid;
+  gap: $space-lg;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.caption {
+  margin: 0 0 $space-sm;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+// ── Framed examples (layout components) ──
+
+.frame {
+  overflow: hidden;
+  border: 1px dashed $color-border-hover;
+  border-radius: $radius-md;
+}
+
+.frameLabel {
+  padding: $space-md;
+  border: 1px solid translucent($color-accent, 0.4);
+  border-radius: $radius-sm;
+  background: $color-accent-dim;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+}
+
+.fakePage {
+  padding: $space-lg;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-bg;
+
+  h4 {
+    margin: 0 0 $space-sm;
+    font-family: $font-display;
+    font-size: $font-size-lg;
+  }
+
+  p {
+    margin: 0;
+    color: $color-text-secondary;
+  }
+}
+
+// ── Lists ──
+
+.postList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.postItem {
+  @include flex-between;
+  gap: $space-md;
+  padding: $space-sm $space-md;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-bg;
+  font-size: $font-size-sm;
+}
+
+.reorderList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  max-width: 420px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reorderItem {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  padding: $space-sm $space-md;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-bg;
+  font-size: $font-size-sm;
+  cursor: grab;
+  transition:
+    border-color $transition-fast,
+    opacity $transition-fast;
+}
+
+.dragHandle {
+  color: $color-text-muted;
+}
+
+.dragging {
+  opacity: 0.4;
+}
+
+.dropTarget {
+  border-color: $color-accent;
+}
+
+// ── Markdown output ──
+// Markdown renders bare elements and leaves the styling to the caller; this is one way to do it.
+
+.prose {
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
+
+  h2 {
+    margin: 0 0 $space-sm;
+    font-family: $font-display;
+    font-size: $font-size-lg;
+    color: $color-text;
+  }
+
+  p,
+  ul,
+  table {
+    margin: 0 0 $space-md;
+  }
+
+  a {
+    color: $color-accent;
+  }
+
+  code {
+    font-family: $font-mono;
+    color: $color-accent;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: $space-xs $space-md;
+    border: 1px solid $color-border;
+    text-align: left;
+  }
+}
+
+// ── Images ──
+
+.imageFrame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: $radius-md;
+}
+
+// ── Canvas effects ──
+
+.effectBox {
+  display: flex;
+  align-items: center;
+  min-height: 280px;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-bg;
+}
+
+.effectContent {
+  padding: $space-xl;
+
+  h4 {
+    margin: 0 0 $space-xs;
+    font-family: $font-display;
+    font-size: $font-size-xl;
+    color: $color-text;
+  }
+
+  p {
+    margin: 0;
+    max-width: 420px;
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+  }
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+
+  input {
+    accent-color: $color-accent;
+  }
+}
+
+.logoRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: $space-2xl;
+}
+
+.logoCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-md;
+  margin: 0;
+}
+
+.heroLogo {
+  display: flex;
+  justify-content: center;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-bg;
+}
+
+// ── Hooks ──
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  min-width: 140px;
+}
+
+.statValue {
+  font-family: $font-display;
+  font-size: $font-size-3xl;
+  font-weight: 700;
+  line-height: 1.1;
+  color: $color-accent;
+  font-variant-numeric: tabular-nums;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  margin: 0;
+  padding: $space-sm $space-lg;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  color: $color-text;
+  transition: opacity 300ms ease;
+}
+
+.fading {
+  opacity: 0;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-success;
+}

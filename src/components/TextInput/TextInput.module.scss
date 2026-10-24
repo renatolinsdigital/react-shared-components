@@ -1,0 +1,53 @@
+@use 'theme' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: inherit;
+  width: 100%;
+  padding: $space-md $space-lg;
+  background: $color-bg-input;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  color: $color-text;
+  font-size: $font-size-base;
+  transition:
+    border-color $transition-base,
+    box-shadow $transition-base;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  // The accent ring below replaces the browser outline
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+    box-shadow: 0 0 0 3px $color-accent-dim;
+  }
+}
+
+.error {
+  .input {
+    border-color: $color-danger;
+  }
+}
+
+.errorMessage {
+  font-size: $font-size-xs;
+  color: $color-danger;
+}

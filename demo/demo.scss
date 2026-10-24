@@ -1,0 +1,23 @@
+@use 'theme' as *;
+
+// The demo page's own globals. There is deliberately no CSS reset here: the components must look
+// right in an app that has none.
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: $font-sans;
+  background-color: $color-bg;
+  color: $color-text;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color $transition-base;
+}
+
+::selection {
+  background: $color-accent;
+  color: $color-bg;
+}

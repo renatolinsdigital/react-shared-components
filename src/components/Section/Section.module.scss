@@ -1,0 +1,23 @@
+@use 'theme' as *;
+@use 'mixins' as *;
+
+.section {
+  position: relative;
+  padding: $space-3xl 0;
+
+  @include respond-to(md) {
+    padding: $space-4xl 0;
+  }
+}
+
+.noPadding {
+  padding: 0;
+}
+
+.dark {
+  background: $color-bg;
+}
+
+.elevated {
+  background: $color-bg-elevated;
+}

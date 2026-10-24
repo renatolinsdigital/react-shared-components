@@ -1,0 +1,109 @@
+@use 'theme' as *;
+@use 'mixins' as *;
+
+.button {
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-sm;
+  padding: $space-md $space-xl;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-radius: $radius-full;
+  transition: all $transition-slow;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    transition: opacity $transition-base;
+    opacity: 0;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.primary {
+  background: $color-accent;
+  color: $color-bg;
+
+  &::before {
+    background: $color-accent-hover;
+  }
+
+  &:hover {
+    box-shadow: 0 0 30px translucent($color-accent, 0.3);
+  }
+}
+
+.secondary {
+  background: transparent;
+  color: $color-text;
+  border: 1px solid $color-border;
+
+  &:hover {
+    border-color: $color-accent;
+    color: $color-accent;
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: $color-text-secondary;
+  padding: $space-sm $space-md;
+
+  &:hover {
+    color: $color-text;
+    background: translucent($color-text, 0.05);
+  }
+}
+
+.danger {
+  background: transparent;
+  color: $color-danger;
+  border: 1px solid translucent($color-danger, 0.3);
+
+  &:hover {
+    background: translucent($color-danger, 0.1);
+    border-color: $color-danger;
+  }
+}
+
+.small {
+  padding: $space-sm $space-md;
+  font-size: $font-size-xs;
+}
+
+.large {
+  padding: $space-lg $space-2xl;
+  font-size: $font-size-base;
+}
+
+.fullWidth {
+  width: 100%;
+}

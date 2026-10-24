@@ -1,0 +1,145 @@
+@use 'theme' as *;
+@use 'mixins' as *;
+
+.hero {
+  // Top clears the fixed navbar + breathing room
+  // Mobile: $navbar-height(88px) + $space-xl(32px) = 120px
+  // Desktop: $navbar-height(88px) + $space-2xl(48px) = 136px
+  padding: calc(#{$navbar-height} + #{$space-xl}) 0 $space-2xl;
+
+  @include respond-to(md) {
+    padding: calc(#{$navbar-height} + #{$space-2xl}) 0 $space-2xl;
+  }
+}
+
+.heroInner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include respond-to(md) {
+    display: block;
+  }
+}
+
+.heroEyebrow {
+  order: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  color: $color-accent;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: $space-md;
+
+  @include respond-to(md) {
+    order: unset;
+    margin-bottom: $space-lg;
+  }
+
+  &::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: $color-accent;
+  }
+}
+
+.heroCount {
+  order: 2;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: $space-md;
+
+  @include respond-to(md) {
+    order: unset;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    position: absolute;
+    top: -10px;
+    right: 0;
+    margin-bottom: 0;
+  }
+}
+
+.countNum {
+  font-family: $font-display;
+  font-weight: 700;
+  color: $color-accent;
+  line-height: 1;
+  font-size: 2rem;
+
+  @include respond-to(md) {
+    font-size: 3.2rem;
+  }
+}
+
+.countLabel {
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $color-text-muted;
+
+  @include respond-to(md) {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+  }
+}
+
+.heroTitle {
+  order: 3;
+  font-family: $font-display;
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  font-weight: 700;
+  color: $color-text;
+  line-height: 1.05;
+  margin: 0 0 $space-md;
+
+  @include respond-to(md) {
+    order: unset;
+  }
+}
+
+@keyframes lineGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.heroLine {
+  order: 5;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, $color-accent 0%, transparent 100%);
+  transform-origin: left center;
+  animation: lineGrow 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  margin-bottom: 20px;
+
+  @include respond-to(md) {
+    order: unset;
+  }
+}
+
+.heroSubtitle {
+  order: 4;
+  font-family: $font-mono;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: $color-text-secondary;
+  max-width: 560px;
+  margin: 0 0 $space-md;
+
+  @include respond-to(md) {
+    order: unset;
+    margin-bottom: 0;
+  }
+}

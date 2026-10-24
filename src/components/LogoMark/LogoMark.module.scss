@@ -1,0 +1,71 @@
+@use 'theme' as *;
+
+// ─── Root container ─────────────────────────────────────────────────────────
+
+.container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  pointer-events: auto;
+
+  // When canvas is active, expand to let particles breathe
+  &.withCanvas {
+    align-self: stretch;
+    width: 100%;
+    max-width: 540px;
+    min-height: 420px;
+  }
+}
+
+// ─── Particle canvas ─────────────────────────────────────────────────────────
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none;
+}
+
+// ─── Ambient glow disc behind logo ──────────────────────────────────────────
+
+.glowDisc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+// ─── SVG wrapper ─────────────────────────────────────────────────────────────
+// No will-change here or on the paths: it makes Chrome rasterise the vector
+// once and scale that bitmap, so the logo blurs as soon as it is scaled.
+
+.svgWrap {
+  position: relative;
+  z-index: 1;
+  cursor: default;
+  // Center the SVG within the wrapper
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ─── SVG element ────────────────────────────────────────────────────────────
+
+.svg {
+  overflow: visible; // scattered paths fly in from outside the viewBox
+  display: block;
+}
+
+// ─── Individual path groups ──────────────────────────────────────────────────
+// transform-box: fill-box lets GSAP rotate/scale around each path's own center
+
+.logoPath {
+  transform-box: fill-box;
+  transform-origin: center center;
+}

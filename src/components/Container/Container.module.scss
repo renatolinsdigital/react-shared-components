@@ -1,0 +1,13 @@
+@use 'theme' as *;
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $space-xl;
+}
+
+.narrow {
+  max-width: $container-narrow;
+}
