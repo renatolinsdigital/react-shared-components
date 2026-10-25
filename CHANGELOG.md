@@ -6,6 +6,15 @@ a fix is a patch.
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-10-24
+
+### Removed
+
+- `useCountUp`, the last part of the library that ran on GSAP. An app that imported it breaks on
+  upgrade: stay on 1.0.2, or keep a copy of the hook (it is about twenty lines). Released as a
+  patch by choice, as 1.0.2 was, although removing an export would call for a major.
+- GSAP as a peer dependency. Apps no longer need to install it for this library.
+
 ## [1.0.2] - 2026-10-24
 
 ### Removed

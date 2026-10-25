@@ -7,6 +7,9 @@ map: what each component does, how the build, the theming and the demo work.
 
 - `src/` knows nothing about any app: no router, no framework imports (`next/*`), no interface
   text. Text a visitor reads arrives as a prop.
+- No GSAP. A component or hook that needs it belongs in the renato-lins site, not here: the
+  library dropped `LogoMark` (1.0.2) and `useCountUp` (1.0.3) for that reason, and GSAP is no
+  longer a dependency of any kind. Canvas effects run on `requestAnimationFrame`.
 - Every component has a folder with `Name.tsx`, `Name.module.scss`, `index.ts` (component and
   props type) and `README.md`. A change to props or behaviour updates the README in the same
   change, and a README never claims what the code does not do.
@@ -36,9 +39,9 @@ anything visible, run `npm run dev` and look at the demo in both themes.
 
 The code came from `src/shared` in the renato-lins site (`D:/projects/nextjs/renato-lins`), which
 now installs this library from GitHub by its release tag. The site keeps what needs Next.js (a
-`next/image` `ShimmerImage`, and a wrapper that feeds the pathname to `PageTransition`) and its
-own logo, `LogoMark`, which this library carried until 1.0.2. A fix to `ShimmerImage` probably
-belongs in both.
+`next/image` `ShimmerImage`, and a wrapper that feeds the pathname to `PageTransition`) and
+everything that runs on GSAP, which this library once carried: `LogoMark` and `useCountUp`. A fix
+to `ShimmerImage` probably belongs in both.
 
 ## Releasing
 

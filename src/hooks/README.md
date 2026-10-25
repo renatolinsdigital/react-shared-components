@@ -1,38 +1,10 @@
 # Hooks
 
-Three small hooks with no UI of their own. Each one is exported from the package root.
+Two small hooks with no UI of their own. Each one is exported from the package root.
 
 ```ts
-import { useCountUp, useDragReorder, useRotatingMessage } from 'react-shared-components';
+import { useDragReorder, useRotatingMessage } from 'react-shared-components';
 ```
-
----
-
-## useCountUp
-
-Counts a displayed number up from 0 to `target`, and counts again from 0 whenever `target`
-changes. Made for stat counters.
-
-```tsx
-function Stat({ label, value }: { label: string; value: number }) {
-  const displayedValue = useCountUp(value);
-  return (
-    <p>
-      {displayedValue} {label}
-    </p>
-  );
-}
-```
-
-| Argument          | Type     | Default  | Description                |
-| ----------------- | -------- | -------- | -------------------------- |
-| `target`          | `number` | required | The number to count up to. |
-| `durationSeconds` | `number` | `1.2`    | How long the count takes.  |
-
-Returns the number to show, rounded to a whole number on every frame.
-
-- The tween runs on GSAP (`power2.out`, so it slows near the end). `gsap` must be installed.
-- Unmounting, or a new target, kills the running tween.
 
 ---
 

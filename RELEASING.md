@@ -11,7 +11,7 @@ point the README at the new tag, commit, tag `vX.Y.Z`, push `master`, then push 
 ## How apps get a release
 
 ```bash
-npm install github:renatolinsdigital/react-shared-components#v1.0.2
+npm install github:renatolinsdigital/react-shared-components#v1.0.3
 ```
 
 npm downloads the repo at that tag and runs the `prepare` script (`npm run build`) to build
@@ -37,11 +37,11 @@ valid version: `v` followed by `MAJOR.MINOR.PATCH`.
 
 The version follows `MAJOR.MINOR.PATCH`, judged by what an app using the library would notice.
 
-| Bump  | When                                                 | Examples                                                                                                                                                                                           |
-| ----- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Major | An app may have to change its code to upgrade.       | Removing or renaming a component, hook, export or prop. Changing a prop's type or default. Removing or renaming a CSS token (`--color-*`). Requiring a newer React or GSAP major, or a newer Node. |
-| Minor | Something new, and every existing use keeps working. | A new component, hook, prop, export or token. A new optional behaviour.                                                                                                                            |
-| Patch | A fix or a correction, with nothing new to learn.    | A bug fix. A style fix that keeps the API. A file added to the package, as `LICENSE` was in 1.0.1.                                                                                                 |
+| Bump  | When                                                 | Examples                                                                                                                                                                                   |
+| ----- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Major | An app may have to change its code to upgrade.       | Removing or renaming a component, hook, export or prop. Changing a prop's type or default. Removing or renaming a CSS token (`--color-*`). Requiring a newer React major, or a newer Node. |
+| Minor | Something new, and every existing use keeps working. | A new component, hook, prop, export or token. A new optional behaviour.                                                                                                                    |
+| Patch | A fix or a correction, with nothing new to learn.    | A bug fix. A style fix that keeps the API. A file added to the package, as `LICENSE` was in 1.0.1.                                                                                         |
 
 When unsure between two, take the bigger one.
 
@@ -130,7 +130,7 @@ Tags are annotated (`git tag -a`), so each one records who made it and when.
 
    ```bash
    npm init -y
-   npm install github:renatolinsdigital/react-shared-components#v1.2.0 react react-dom gsap
+   npm install github:renatolinsdigital/react-shared-components#v1.2.0 react react-dom
    node -p "require('./node_modules/react-shared-components/package.json').version"
    ```
 

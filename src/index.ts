@@ -54,6 +54,5 @@ export type { TextInputProps } from './components/TextInput';
 export { ToastProvider, useToast } from './components/Toast';
 export type { ToastProviderProps, ToastVariant } from './components/Toast';
 
-export { useCountUp } from './hooks/useCountUp';
 export { useDragReorder } from './hooks/useDragReorder';
 export { useRotatingMessage } from './hooks/useRotatingMessage';

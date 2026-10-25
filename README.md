@@ -16,11 +16,10 @@ dark and light themes, take every visible word as a prop, and ship with TypeScri
 
 ## Install
 
-The package is not on npm. Install a release from GitHub by its tag, together with GSAP, which
-the app provides:
+The package is not on npm. Install a release from GitHub by its tag:
 
 ```bash
-npm install github:renatolinsdigital/react-shared-components#v1.0.2 gsap
+npm install github:renatolinsdigital/react-shared-components#v1.0.3
 ```
 
 npm downloads the repo at that tag and builds it during the install, so the first install takes
@@ -33,7 +32,6 @@ releases.
 | What                           | Version                  | Why                                                  |
 | ------------------------------ | ------------------------ | ---------------------------------------------------- |
 | `react`, `react-dom`           | 19                       | Peer dependencies.                                   |
-| `gsap`                         | 3                        | Peer dependency, for `useCountUp`.                   |
 | Node.js                        | 20.19, or 22.12 or later | npm builds the package with Vite during the install. |
 | `react-markdown`, `remark-gfm` | 10, 4                    | Installed with the package, for `Markdown`.          |
 
@@ -124,11 +122,10 @@ Each component has a README beside its code, with every prop and an example.
 
 ### Hooks
 
-All three are documented in [src/hooks/README.md](src/hooks/README.md).
+Both are documented in [src/hooks/README.md](src/hooks/README.md).
 
 | Hook                 | What it does                                               |
 | -------------------- | ---------------------------------------------------------- |
-| `useCountUp`         | Counts a number up from 0 to a target.                     |
 | `useDragReorder`     | Drag-and-drop reordering for a list, on HTML5 drag events. |
 | `useRotatingMessage` | Cycles through messages on a timer, with a fade.           |
 
@@ -218,7 +215,7 @@ switch between the dark and light themes.
 ## Versioning
 
 Releases follow `MAJOR.MINOR.PATCH`: a breaking change to a component's props or exports is
-major, a new component or prop is minor, a fix is a patch. Each release is a git tag (`v1.0.2`),
+major, a new component or prop is minor, a fix is a patch. Each release is a git tag (`v1.0.3`),
 with its notes in [CHANGELOG.md](CHANGELOG.md). [RELEASING.md](RELEASING.md) explains how a
 release is made and when to tag one.
 
@@ -242,7 +239,7 @@ Bug reports and pull requests are welcome on GitHub.
 ```
 src/
   components/<Name>/   Name.tsx, Name.module.scss, index.ts, README.md, Name.test.tsx
-  hooks/               the three hooks, their tests and their README
+  hooks/               the two hooks, their tests and their README
   styles/              _theme.scss (tokens), _mixins.scss, tokens.scss (the CSS variables)
   index.ts             the public API
   bundleEntry.ts       the build entry: the API plus the tokens

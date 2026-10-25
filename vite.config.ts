@@ -12,8 +12,7 @@ function fromRoot(relativePath: string): string {
 const libraryEntry = fromRoot('./src/bundleEntry.ts');
 
 // The app that installs the library brings its own copy of each of these. Bundling them would
-// ship a second React (hooks then throw) and a second GSAP, whose ScrollTrigger would never see
-// the app's refreshes.
+// ship a second React, and hooks then throw.
 const externalPackages = [
   ...Object.keys(packageJson.peerDependencies),
   ...Object.keys(packageJson.dependencies),

@@ -16,7 +16,6 @@ import TagFilterDemo from './sections/TagFilterDemo';
 import TextAreaDemo from './sections/TextAreaDemo';
 import TextInputDemo from './sections/TextInputDemo';
 import ToastDemo from './sections/ToastDemo';
-import UseCountUpDemo from './sections/UseCountUpDemo';
 import UseDragReorderDemo from './sections/UseDragReorderDemo';
 import UseRotatingMessageDemo from './sections/UseRotatingMessageDemo';
 
@@ -92,7 +91,6 @@ export const DEMO_GROUPS: DemoGroup[] = [
   {
     title: 'Hooks',
     entries: [
-      hookDemo('useCountUp', UseCountUpDemo),
       hookDemo('useDragReorder', UseDragReorderDemo),
       hookDemo('useRotatingMessage', UseRotatingMessageDemo),
     ],
