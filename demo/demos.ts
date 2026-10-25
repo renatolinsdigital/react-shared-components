@@ -2,7 +2,6 @@ import type { ComponentType } from 'react';
 import type { DemoHeading } from './components/DemoSection';
 import ButtonDemo from './sections/ButtonDemo';
 import ContainerDemo from './sections/ContainerDemo';
-import LogoMarkDemo from './sections/LogoMarkDemo';
 import MarkdownDemo from './sections/MarkdownDemo';
 import MarkdownEditorDemo from './sections/MarkdownEditorDemo';
 import MatrixContainerDemo from './sections/MatrixContainerDemo';
@@ -86,7 +85,6 @@ export const DEMO_GROUPS: DemoGroup[] = [
   {
     title: 'Canvas effects',
     entries: [
-      componentDemo('LogoMark', LogoMarkDemo),
       componentDemo('MatrixContainer', MatrixContainerDemo),
       componentDemo('OrbitalDots', OrbitalDotsDemo),
     ],

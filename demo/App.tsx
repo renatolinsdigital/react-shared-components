@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Button, Container, LogoMark, PageHero, ToastProvider } from 'react-shared-components';
+import { Button, Container, PageHero, ToastProvider } from 'react-shared-components';
 import { DEMO_COUNT, DEMO_GROUPS } from './demos';
-import { ACCENT_HEX, ThemeContext } from './theme';
+import { ThemeContext } from './theme';
 import type { Theme } from './theme';
 import styles from './App.module.scss';
 
@@ -19,7 +19,7 @@ export default function App() {
       <ToastProvider dismissLabel="Dismiss notification">
         <header className={styles.topBar}>
           <a href="#top" className={styles.brand}>
-            <LogoMark preset="minimal" size={18} opacity={0.9} color={ACCENT_HEX[theme]} />
+            <span className={styles.brandMark} aria-hidden="true" />
             react-shared-components
           </a>
           <Button

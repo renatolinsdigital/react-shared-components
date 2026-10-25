@@ -9,14 +9,9 @@ export function useDemoTheme(): Theme {
 }
 
 /**
- * The accent per theme for the canvas and SVG effects, which cannot read CSS custom properties.
- * Keep in step with `accent` in `$palettes` (src/styles/_theme.scss).
+ * The accent per theme, as `r,g,b`, for the canvas effects, which cannot read CSS custom
+ * properties. Keep in step with `accent` in `$palettes` (src/styles/_theme.scss).
  */
-export const ACCENT_HEX: Record<Theme, string> = {
-  dark: '#c8ff00',
-  light: '#527300',
-};
-
 export const ACCENT_RGB: Record<Theme, string> = {
   dark: '200,255,0',
   light: '82,115,0',

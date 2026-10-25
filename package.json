@@ -1,12 +1,11 @@
 {
   "name": "react-shared-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React components and hooks with no app knowledge: form fields, layout, Markdown, toasts and canvas effects.",
   "private": true,
   "type": "module",
   "files": [
-    "dist",
-    "LOGO.md"
+    "dist"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",

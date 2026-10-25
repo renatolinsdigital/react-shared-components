@@ -20,7 +20,7 @@ The package is not on npm. Install a release from GitHub by its tag, together wi
 the app provides:
 
 ```bash
-npm install github:renatolinsdigital/react-shared-components#v1.0.1 gsap
+npm install github:renatolinsdigital/react-shared-components#v1.0.2 gsap
 ```
 
 npm downloads the repo at that tag and builds it during the install, so the first install takes
@@ -33,7 +33,7 @@ releases.
 | What                           | Version                  | Why                                                  |
 | ------------------------------ | ------------------------ | ---------------------------------------------------- |
 | `react`, `react-dom`           | 19                       | Peer dependencies.                                   |
-| `gsap`                         | 3                        | Peer dependency, for `LogoMark` and `useCountUp`.    |
+| `gsap`                         | 3                        | Peer dependency, for `useCountUp`.                   |
 | Node.js                        | 20.19, or 22.12 or later | npm builds the package with Vite during the install. |
 | `react-markdown`, `remark-gfm` | 10, 4                    | Installed with the package, for `Markdown`.          |
 
@@ -117,11 +117,10 @@ Each component has a README beside its code, with every prop and an example.
 
 ### Canvas effects
 
-| Component                                                   | What it does                                                                              |
-| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| [LogoMark](src/components/LogoMark/README.md)               | The animated Renato Lins logo, with an optional particle canvas. See [License](#license). |
-| [MatrixContainer](src/components/MatrixContainer/README.md) | Katakana rain behind its children, tunable live.                                          |
-| [OrbitalDots](src/components/OrbitalDots/README.md)         | A drifting particle network behind its children.                                          |
+| Component                                                   | What it does                                     |
+| ----------------------------------------------------------- | ------------------------------------------------ |
+| [MatrixContainer](src/components/MatrixContainer/README.md) | Katakana rain behind its children, tunable live. |
+| [OrbitalDots](src/components/OrbitalDots/README.md)         | A drifting particle network behind its children. |
 
 ### Hooks
 
@@ -160,9 +159,9 @@ To change a colour, override its token after the import:
 
 The full palettes live in [src/styles/\_theme.scss](src/styles/_theme.scss).
 
-Canvases and SVG fills cannot read CSS variables. `LogoMark`, `MatrixContainer` and `OrbitalDots`
-take their colour as a prop or config value: pass the accent of the active theme (the demo does,
-in [demo/theme.ts](demo/theme.ts)).
+Canvases cannot read CSS variables. `MatrixContainer` and `OrbitalDots` take their colour as a
+config value: pass the accent of the active theme (the demo does, in
+[demo/theme.ts](demo/theme.ts)).
 
 ### Fonts
 
@@ -219,7 +218,7 @@ switch between the dark and light themes.
 ## Versioning
 
 Releases follow `MAJOR.MINOR.PATCH`: a breaking change to a component's props or exports is
-major, a new component or prop is minor, a fix is a patch. Each release is a git tag (`v1.0.1`),
+major, a new component or prop is minor, a fix is a patch. Each release is a git tag (`v1.0.2`),
 with its notes in [CHANGELOG.md](CHANGELOG.md). [RELEASING.md](RELEASING.md) explains how a
 release is made and when to tag one.
 
@@ -280,7 +279,4 @@ npm install ../react-shared-components/react-shared-components-<version>.tgz
 
 ## License
 
-[MIT](LICENSE), except the logo artwork. `LogoMark` draws the personal mark of Renato Lins, which
-the license does not cover: it may not be used as a logo for anyone or anything else
-([LOGO.md](LOGO.md) has the details). The component's code is covered, so a copy can swap in
-other path data and animate a different mark. Both files ship inside the installed package.
+[MIT](LICENSE). The license file ships inside the installed package.

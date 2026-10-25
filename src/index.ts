@@ -4,9 +4,6 @@ export type { ButtonProps } from './components/Button';
 export { default as Container } from './components/Container';
 export type { ContainerProps } from './components/Container';
 
-export { default as LogoMark, LOGO_CONFIG } from './components/LogoMark';
-export type { LogoConfig, LogoMarkProps, LogoPreset } from './components/LogoMark';
-
 export { default as Markdown } from './components/Markdown';
 export type { MarkdownProps } from './components/Markdown';
 

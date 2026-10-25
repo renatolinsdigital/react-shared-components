@@ -28,6 +28,14 @@ $sidebar-width: 220px;
   text-decoration: none;
 }
 
+.brandMark {
+  flex-shrink: 0;
+  width: $space-md;
+  height: $space-md;
+  border-radius: $radius-sm;
+  background: $color-accent;
+}
+
 .layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

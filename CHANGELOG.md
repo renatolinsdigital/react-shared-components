@@ -6,6 +6,17 @@ a fix is a patch.
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-10-24
+
+### Removed
+
+- `LogoMark`, with `LOGO_CONFIG` and the types `LogoConfig`, `LogoMarkProps` and `LogoPreset`. It
+  drew the Renato Lins logo, which belongs to that site rather than to a shared library. An app
+  that imported any of them breaks on upgrade: stay on 1.0.1, or keep a copy of the component.
+  Released as a patch by choice, although removing exports would call for a major.
+- `LOGO.md`. With the logo gone, everything in the repo is under the MIT license, and the demo
+  page has a neutral favicon.
+
 ## [1.0.1] - 2026-10-24
 
 ### Added

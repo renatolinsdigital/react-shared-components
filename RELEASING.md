@@ -11,11 +11,11 @@ point the README at the new tag, commit, tag `vX.Y.Z`, push `master`, then push 
 ## How apps get a release
 
 ```bash
-npm install github:renatolinsdigital/react-shared-components#v1.0.1
+npm install github:renatolinsdigital/react-shared-components#v1.0.2
 ```
 
 npm downloads the repo at that tag and runs the `prepare` script (`npm run build`) to build
-`dist/`. It installs what `files` in `package.json` lists (`dist/` and `LOGO.md`), plus the files
+`dist/`. It installs what `files` in `package.json` lists (`dist/`), plus the files
 npm always includes: `package.json`, `README.md` and `LICENSE`. The app's lockfile records the
 commit the tag pointed to.
 
@@ -112,7 +112,7 @@ Tags are annotated (`git tag -a`), so each one records who made it and when.
    ```
 
    The list should show the new version and hold `dist/` (`index.js`, `styles.css` and the
-   `.d.ts` files), `LICENSE`, `LOGO.md`, `README.md` and `package.json`.
+   `.d.ts` files), `LICENSE`, `README.md` and `package.json`.
 
 6. **Commit, tag and push**, `master` first:
 
