@@ -19,16 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-The Renato Lins logo
-
-The logo artwork that the LogoMark component draws (the SVG path data in
-src/components/LogoMark/LogoMark.tsx) and the same artwork in
-demo/public/favicon.svg are the personal mark of Renato Lins. They are not
-covered by the MIT License above and may not be used as a logo, or to identify
-any person, product or service other than Renato Lins.
-
-The rest of LogoMark (its animation, canvas and props) is covered by the MIT
-License: a copy may replace the path data with other artwork and use it under
-that license.

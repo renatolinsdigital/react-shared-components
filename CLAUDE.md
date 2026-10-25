@@ -24,8 +24,10 @@ map: what each component does, how the build, the theming and the demo work.
 - Tests use Vitest and React Testing Library, finding elements by role and label. A bug fix
   comes with a test that failed before it.
 - The repo is public under MIT, except the Renato Lins logo artwork (the path data in
-  `LogoMark.tsx`, `demo/public/favicon.svg`), which `LICENSE` names. A new file that holds that
-  artwork is named there too.
+  `LogoMark.tsx`, `demo/public/favicon.svg`), which `LOGO.md` names. A new file that holds that
+  artwork is named there too. `LICENSE` stays the plain MIT text: one added line and GitHub stops
+  recognising it, showing "Other" instead of MIT. Keep "license" out of `LOGO.md`'s name, or
+  GitHub counts it as a second license.
 
 ## Checks
 

@@ -20,7 +20,7 @@ The package is not on npm. Install a release from GitHub by its tag, together wi
 the app provides:
 
 ```bash
-npm install github:renatolinsdigital/react-shared-components#v1.0.0 gsap
+npm install github:renatolinsdigital/react-shared-components#v1.0.1 gsap
 ```
 
 npm downloads the repo at that tag and builds it during the install, so the first install takes
@@ -219,7 +219,7 @@ switch between the dark and light themes.
 ## Versioning
 
 Releases follow `MAJOR.MINOR.PATCH`: a breaking change to a component's props or exports is
-major, a new component or prop is minor, a fix is a patch. Each release is a git tag (`v1.0.0`),
+major, a new component or prop is minor, a fix is a patch. Each release is a git tag (`v1.0.1`),
 with its notes in [CHANGELOG.md](CHANGELOG.md).
 
 ## Contributing
@@ -280,5 +280,6 @@ npm install ../react-shared-components/react-shared-components-<version>.tgz
 ## License
 
 [MIT](LICENSE), except the logo artwork. `LogoMark` draws the personal mark of Renato Lins, which
-the license does not cover: it may not be used as a logo for anyone or anything else. The
-component's code is covered, so a copy can swap in other path data and animate a different mark.
+the license does not cover: it may not be used as a logo for anyone or anything else
+([LOGO.md](LOGO.md) has the details). The component's code is covered, so a copy can swap in
+other path data and animate a different mark. Both files ship inside the installed package.

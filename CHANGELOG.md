@@ -6,10 +6,13 @@ a fix is a patch.
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-10-24
+
 ### Added
 
-- The MIT license, which leaves out the Renato Lins logo artwork that `LogoMark` draws. The repo
-  is public, so installing from GitHub needs no access to it.
+- The MIT license (`LICENSE`), inside the installed package. The Renato Lins logo artwork that
+  `LogoMark` draws is left out of it, as `LOGO.md` (also in the package) says. The repo is
+  public, so installing from GitHub needs no access to it.
 - The package states the Node versions its install-time build needs: 20.19, or 22.12 or later.
 
 ## [1.0.0] - 2026-10-24

@@ -4,7 +4,7 @@ An animated SVG logo component with optional particle-constellation canvas, scro
 
 Config lives in `logoMarkConfig.ts` beside the component, exported as `LOGO_CONFIG`. It needs `gsap` (with its `ScrollTrigger` plugin, which the component registers itself).
 
-The artwork it draws is the personal mark of Renato Lins and is not covered by the library's MIT license ([LICENSE](../../../LICENSE)): it may not be used as anyone else's logo. The code is covered, so a copy can replace the path data in `LogoMark.tsx` with other artwork.
+The artwork it draws is the personal mark of Renato Lins and is not covered by the library's MIT license ([LOGO.md](../../../LOGO.md)): it may not be used as anyone else's logo. The code is covered, so a copy can replace the path data in `LogoMark.tsx` with other artwork.
 
 ---
 
