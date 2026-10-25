@@ -1,23 +1,80 @@
 # React Shared Components
 
-React components and hooks that know nothing about the app around them: form fields, layout,
-Markdown, toasts and canvas effects. Dark and light themes, text in any language, written in
-TypeScript with SCSS modules.
+React 19 components and hooks for building a site and its admin screens: form fields, layout,
+tags, Markdown, toasts and canvas effects. They know nothing about the app around them, come in
+dark and light themes, take every visible word as a prop, and ship with TypeScript types.
 
-## See them live
+- **Themeable.** Colours are CSS custom properties: switch to light with one attribute, or
+  override any token.
+- **Any language.** No component holds interface text. Labels arrive as props.
+- **Accessible.** Every field is tied to its label, everything clickable is a real `<button>`,
+  and toggles carry `aria-pressed`.
+- **One stylesheet, no reset.** Each component sets the box model, margins and fonts it relies
+  on, so it looks right in an app with no CSS reset.
+- **Plain React or Next.js.** One ES module with `'use client'` at the top, so it works in a Vite
+  app and in the Next.js App Router alike.
+
+## Install
+
+The package is not on npm. Install a release from GitHub by its tag, together with GSAP, which
+the app provides:
 
 ```bash
-npm install
-npm run dev
-# open http://localhost:5173
+npm install github:renatolinsdigital/react-shared-components#v1.0.0 gsap
 ```
 
-The demo page shows every component and hook working, with the code for each, and a button to
-switch between the dark and light themes.
+npm downloads the repo at that tag and builds it during the install, so the first install takes
+a little longer. The app's lockfile then pins the tag's commit, and every later install gets the
+same build. To upgrade, install a newer tag the same way: [CHANGELOG.md](CHANGELOG.md) lists the
+releases.
 
-## What is inside
+### Requirements
 
-Each component has its own README beside its code.
+| What                           | Version                  | Why                                                  |
+| ------------------------------ | ------------------------ | ---------------------------------------------------- |
+| `react`, `react-dom`           | 19                       | Peer dependencies.                                   |
+| `gsap`                         | 3                        | Peer dependency, for `LogoMark` and `useCountUp`.    |
+| Node.js                        | 20.19, or 22.12 or later | npm builds the package with Vite during the install. |
+| `react-markdown`, `remark-gfm` | 10, 4                    | Installed with the package, for `Markdown`.          |
+
+## Quick start
+
+Import the stylesheet once, at the root of the app, then use the components anywhere below it:
+
+```tsx
+import 'react-shared-components/styles.css';
+import { Button, TextInput, ToastProvider, useToast } from 'react-shared-components';
+
+function NewsletterForm() {
+  const { addToast } = useToast();
+
+  return (
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        addToast('You are subscribed.');
+      }}
+    >
+      <TextInput label="Email" type="email" required />
+      <Button type="submit">Subscribe</Button>
+    </form>
+  );
+}
+
+export default function App() {
+  return (
+    <ToastProvider dismissLabel="Dismiss notification">
+      <NewsletterForm />
+    </ToastProvider>
+  );
+}
+```
+
+Every props type is exported as well: `import type { ButtonProps } from 'react-shared-components'`.
+
+## Components
+
+Each component has a README beside its code, with every prop and an example.
 
 ### Layout
 
@@ -60,11 +117,11 @@ Each component has its own README beside its code.
 
 ### Canvas effects
 
-| Component                                                   | What it does                                                     |
-| ----------------------------------------------------------- | ---------------------------------------------------------------- |
-| [LogoMark](src/components/LogoMark/README.md)               | The animated Renato Lins logo, with an optional particle canvas. |
-| [MatrixContainer](src/components/MatrixContainer/README.md) | Katakana rain behind its children, tunable live.                 |
-| [OrbitalDots](src/components/OrbitalDots/README.md)         | A drifting particle network behind its children.                 |
+| Component                                                   | What it does                                                                              |
+| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| [LogoMark](src/components/LogoMark/README.md)               | The animated Renato Lins logo, with an optional particle canvas. See [License](#license). |
+| [MatrixContainer](src/components/MatrixContainer/README.md) | Katakana rain behind its children, tunable live.                                          |
+| [OrbitalDots](src/components/OrbitalDots/README.md)         | A drifting particle network behind its children.                                          |
 
 ### Hooks
 
@@ -75,61 +132,6 @@ All three are documented in [src/hooks/README.md](src/hooks/README.md).
 | `useCountUp`         | Counts a number up from 0 to a target.                     |
 | `useDragReorder`     | Drag-and-drop reordering for a list, on HTML5 drag events. |
 | `useRotatingMessage` | Cycles through messages on a timer, with a fade.           |
-
-## Using it in an app
-
-The package is not on npm. Install a release from GitHub by its tag:
-
-```bash
-npm install github:renatolinsdigital/react-shared-components#v1.0.0
-npm install gsap               # if the app does not have it yet
-```
-
-npm downloads the repo at that tag, and the `prepare` script builds `dist/` before the package is
-installed. The app's lockfile pins the tag's commit, so every install gets the same build.
-
-The repo is private, so that install needs access to it wherever the app installs, CI and
-deploy hosts included. An app that installs without that access keeps the packed release in its
-own repo instead:
-
-```bash
-npm pack github:renatolinsdigital/react-shared-components#v1.0.0 --pack-destination vendor
-npm install ./vendor/react-shared-components-1.0.0.tgz
-```
-
-To try changes that are not released yet, install a packed file of this folder:
-
-```bash
-# in this repo
-npm pack                       # builds, then writes react-shared-components-1.0.0.tgz
-
-# in the app
-npm install ../react-shared-components/react-shared-components-1.0.0.tgz
-```
-
-Either way the app gets a real copy rather than a link to this folder. A linked folder brings its
-own `node_modules/react`, and hooks then fail with "Invalid hook call".
-
-Then import the styles once, at the root of the app, and the components wherever they are needed:
-
-```tsx
-import 'react-shared-components/styles.css';
-import { Button, ToastProvider } from 'react-shared-components';
-```
-
-### Requirements
-
-| Package                        | Version | Why                                           |
-| ------------------------------ | ------- | --------------------------------------------- |
-| `react`, `react-dom`           | 19      | Peer dependencies.                            |
-| `gsap`                         | 3       | Peer dependency: `LogoMark` and `useCountUp`. |
-| `react-markdown`, `remark-gfm` | 10, 4   | Installed with the package, for `Markdown`.   |
-
-### Next.js
-
-The bundle starts with `'use client'`, so every component is a client component and can be used
-from Server Components in the App Router. `ShimmerImage` is a plain `<img>`, not `next/image`; see
-its README.
 
 ## Theming
 
@@ -170,18 +172,59 @@ The components name three fonts and fall back to system fonts without them. Load
 - **Space Grotesk** for headings,
 - **JetBrains Mono** for labels and code.
 
-### No reset needed
-
-Each component sets the box model, margins, borders and fonts it relies on, so it looks right in
-an app with no CSS reset. The demo page has none, to prove it.
-
 ## Text and language
 
 No component holds a word of interface text. Anything a visitor reads arrives as a prop:
 `Select`'s `placeholder`, `TagFilter`'s `allLabel`, `Tag`'s `removeLabel`, `ToastProvider`'s
 `dismissLabel`, `MarkdownEditor`'s `labels`. Pass them in the page's language.
 
-## Development
+## Next.js
+
+The bundle starts with `'use client'`, so every component is a client component and can be
+rendered from Server Components in the App Router. Import `styles.css` in the root
+`app/layout.tsx`.
+
+Two components are plain React where Next.js has its own tools:
+
+- `PageTransition` fades in when its `transitionKey` changes. To fade on every navigation, hand
+  it the pathname from a small client component:
+
+  ```tsx
+  'use client';
+
+  import type { ReactNode } from 'react';
+  import { usePathname } from 'next/navigation';
+  import { PageTransition } from 'react-shared-components';
+
+  export default function RouteTransition({ children }: { children: ReactNode }) {
+    return <PageTransition transitionKey={usePathname()}>{children}</PageTransition>;
+  }
+  ```
+
+- `ShimmerImage` is a plain `<img>`, so it skips the `next/image` optimizer. Pass `srcSet` and
+  `sizes` when responsive images matter; its README has more.
+
+## Try the demo
+
+```bash
+git clone https://github.com/renatolinsdigital/react-shared-components.git
+cd react-shared-components
+npm install
+npm run dev                    # http://localhost:5173
+```
+
+The demo page shows every component and hook working, with the code for each, and a button to
+switch between the dark and light themes.
+
+## Versioning
+
+Releases follow `MAJOR.MINOR.PATCH`: a breaking change to a component's props or exports is
+major, a new component or prop is minor, a fix is a patch. Each release is a git tag (`v1.0.0`),
+with its notes in [CHANGELOG.md](CHANGELOG.md).
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub.
 
 | Command              | What it does                                                  |
 | -------------------- | ------------------------------------------------------------- |
@@ -220,3 +263,22 @@ names from `src/styles`.
 3. A test beside it, `Name.test.tsx`, finding elements by role and label.
 4. A demo in `demo/sections/<Name>Demo.tsx`, listed in `demo/demos.ts`.
 5. A row in the tables above, and a line in `CHANGELOG.md`.
+
+### Trying a change in an app
+
+Install a packed copy of your working folder rather than linking it. A linked folder brings its
+own `node_modules/react`, and hooks then fail with "Invalid hook call".
+
+```bash
+# in this repo
+npm pack                       # builds, then writes react-shared-components-<version>.tgz
+
+# in the app
+npm install ../react-shared-components/react-shared-components-<version>.tgz
+```
+
+## License
+
+[MIT](LICENSE), except the logo artwork. `LogoMark` draws the personal mark of Renato Lins, which
+the license does not cover: it may not be used as a logo for anyone or anything else. The
+component's code is covered, so a copy can swap in other path data and animate a different mark.

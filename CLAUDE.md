@@ -23,6 +23,9 @@ map: what each component does, how the build, the theming and the demo work.
   a comma, brackets or two sentences. Ranges take a word: `0 to 1`.
 - Tests use Vitest and React Testing Library, finding elements by role and label. A bug fix
   comes with a test that failed before it.
+- The repo is public under MIT, except the Renato Lins logo artwork (the path data in
+  `LogoMark.tsx`, `demo/public/favicon.svg`), which `LICENSE` names. A new file that holds that
+  artwork is named there too.
 
 ## Checks
 
@@ -32,14 +35,13 @@ anything visible, run `npm run dev` and look at the demo in both themes.
 ## Origin
 
 The code came from `src/shared` in the renato-lins site (`D:/projects/nextjs/renato-lins`), which
-now installs this library from a release packed into its `vendor/` folder (the repo is private,
-so its deploys cannot fetch it from GitHub). The site keeps only what needs Next.js: a
+now installs this library from GitHub by its release tag. The site keeps only what needs Next.js: a
 `next/image` `ShimmerImage`, and a wrapper that feeds the pathname to `PageTransition`. A fix to
 `ShimmerImage` probably belongs in both.
 
 ## Releasing
 
-Apps install a release by its git tag, or pack it from the tag, so a release is: the new version in `package.json` and
+Apps install a release by its git tag, so a release is: the new version in `package.json` and
 both root `version` fields of `package-lock.json` (`npm version x.y.z --no-git-tag-version`), the
 `Unreleased` entries of `CHANGELOG.md` moved under `## [x.y.z] - YYYY-MM-DD`, a commit, and the
 tag `vx.y.z` pushed with it.
