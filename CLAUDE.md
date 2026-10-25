@@ -43,7 +43,7 @@ now installs this library from GitHub by its release tag. The site keeps only wh
 
 ## Releasing
 
-Apps install a release by its git tag, so a release is: the new version in `package.json` and
-both root `version` fields of `package-lock.json` (`npm version x.y.z --no-git-tag-version`), the
-`Unreleased` entries of `CHANGELOG.md` moved under `## [x.y.z] - YYYY-MM-DD`, a commit, and the
-tag `vx.y.z` pushed with it.
+Apps install a release by its git tag, so a release is a tagged commit on `master`.
+`RELEASING.md` holds the whole process: choosing the version, when to release and tag, the steps,
+and what to do when a push or a tag goes wrong. Follow it, and change it when the process
+changes. A pushed tag is never moved: a broken release is fixed by the next patch.

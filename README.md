@@ -220,7 +220,8 @@ switch between the dark and light themes.
 
 Releases follow `MAJOR.MINOR.PATCH`: a breaking change to a component's props or exports is
 major, a new component or prop is minor, a fix is a patch. Each release is a git tag (`v1.0.1`),
-with its notes in [CHANGELOG.md](CHANGELOG.md).
+with its notes in [CHANGELOG.md](CHANGELOG.md). [RELEASING.md](RELEASING.md) explains how a
+release is made and when to tag one.
 
 ## Contributing
 
