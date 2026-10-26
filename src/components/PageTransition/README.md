@@ -10,7 +10,7 @@ import { PageTransition } from 'react-shared-components';
 
 // Next.js App Router, in a client layout
 const pathname = usePathname();
-<PageTransition transitionKey={pathname}>{children}</PageTransition>
+<PageTransition transitionKey={pathname} appear={false}>{children}</PageTransition>
 
 // React Router
 const { pathname } = useLocation();
@@ -24,10 +24,23 @@ const { pathname } = useLocation();
 
 ## Props
 
-| Prop            | Type        | Default  | Description                                 |
-| --------------- | ----------- | -------- | ------------------------------------------- |
-| `children`      | `ReactNode` | required | The content to fade.                        |
-| `transitionKey` | `string`    | none     | A change fades the content out and back in. |
+| Prop            | Type        | Default  | Description                                                                         |
+| --------------- | ----------- | -------- | ----------------------------------------------------------------------------------- |
+| `children`      | `ReactNode` | required | The content to fade.                                                                |
+| `transitionKey` | `string`    | none     | A change fades the content out and back in.                                         |
+| `appear`        | `boolean`   | `true`   | Fade in on mount. `false` shows the first content at once; only a key change fades. |
+
+## Server rendering
+
+With the default `appear`, the wrapper renders at `opacity: 0` and fades in only after the
+component mounts in the browser. On a server-rendered page (Next.js, TanStack Start, Remix) that
+leaves the page blank in the server HTML until the scripts load and hydrate: seconds on a slow
+phone, and for good if they fail. Pass `appear={false}` there. The first page then shows in the
+server HTML, and every later navigation still fades.
+
+A page whose own entrances start hidden (a GSAP `from()` run in an effect) will show them flash
+once `appear` is off: the content is visible in the first paint, hidden when the effect runs,
+then animated. Leave content that is already on screen at hydration as it is.
 
 ## How it works
 
@@ -36,3 +49,5 @@ const { pathname } = useLocation();
 3. The wrapper goes back to `opacity: 1` over 0.4s.
 
 The content is not remounted: only the wrapper's opacity changes, so state inside it survives.
+With `appear={false}`, the first key skips these steps; Strict Mode's second run of the mount
+effect skips them too.

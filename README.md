@@ -19,7 +19,7 @@ dark and light themes, take every visible word as a prop, and ship with TypeScri
 The package is not on npm. Install a release from GitHub by its tag:
 
 ```bash
-npm install github:renatolinsdigital/react-shared-components#v1.0.3
+npm install github:renatolinsdigital/react-shared-components#v1.1.0
 ```
 
 npm downloads the repo at that tag and builds it during the install, so the first install takes
@@ -183,7 +183,8 @@ rendered from Server Components in the App Router. Import `styles.css` in the ro
 Two components are plain React where Next.js has its own tools:
 
 - `PageTransition` fades in when its `transitionKey` changes. To fade on every navigation, hand
-  it the pathname from a small client component:
+  it the pathname from a small client component. `appear={false}` keeps the server-rendered
+  page visible on the first load, instead of blank until the scripts run:
 
   ```tsx
   'use client';
@@ -193,7 +194,11 @@ Two components are plain React where Next.js has its own tools:
   import { PageTransition } from 'react-shared-components';
 
   export default function RouteTransition({ children }: { children: ReactNode }) {
-    return <PageTransition transitionKey={usePathname()}>{children}</PageTransition>;
+    return (
+      <PageTransition transitionKey={usePathname()} appear={false}>
+        {children}
+      </PageTransition>
+    );
   }
   ```
 
@@ -215,7 +220,7 @@ switch between the dark and light themes.
 ## Versioning
 
 Releases follow `MAJOR.MINOR.PATCH`: a breaking change to a component's props or exports is
-major, a new component or prop is minor, a fix is a patch. Each release is a git tag (`v1.0.3`),
+major, a new component or prop is minor, a fix is a patch. Each release is a git tag (`v1.1.0`),
 with its notes in [CHANGELOG.md](CHANGELOG.md). [RELEASING.md](RELEASING.md) explains how a
 release is made and when to tag one.
 

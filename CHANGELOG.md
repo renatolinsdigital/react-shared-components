@@ -6,6 +6,14 @@ a fix is a patch.
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-10-26
+
+### Added
+
+- `appear` on `PageTransition`. Pass `appear={false}` on a server-rendered page, and the first
+  page shows in the server HTML instead of staying blank until the scripts hydrate it; later
+  changes of `transitionKey` still fade. The default, `true`, keeps the fade on mount.
+
 ## [1.0.3] - 2026-10-24
 
 ### Removed
